@@ -1,0 +1,114 @@
+@mixin boxShadow ($offset-x, $offset-y, $blur-radius, $color){
+    box-shadow: $offset-x $offset-y $blur-radius $color;
+}
+@mixin text-hover ($size){
+    &:hover{
+        padding: $size;
+        margin: 0;
+        margin-left: 13px; 
+    }
+}
+$font-family: Georgia, 'Times New Roman', Times, serif;
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+.body{
+    z-index: 0.9;
+    .teamTopic{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: 30px;
+        text-align: center;
+    }
+}
+.header{
+    // background-image: url("../assets/images/background2_web.jpg");
+    background: linear-gradient(65deg, #85144b, #7FDBFF); 
+    background-size: cover;
+    height: 900px;
+    width: 100%;
+    text-align: center;
+    h1{
+        padding-top: 175px;
+        text-align: center;
+        font-family: $font-family;
+        font-style: italic;
+        font-size: 70px;
+    }
+    h2{
+        text-align: center;
+        padding-top: 200px;
+        font-family: $font-family;
+        font-size: 50px;
+        width: 50%;
+        padding-left: 360px;
+    }
+}
+.nav{
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    height: 50px;
+    z-index: 100;
+    @include boxShadow(10px, 0px, 20px, #888888);
+}
+.nav-menu-item{
+    display: flex;
+    margin-left: 20px;
+    z-index: 40;
+    li{
+        margin-top: 20px;
+        margin-left: 10px;
+        list-style: none;
+        display: inline-block;
+        padding: 20px;
+        @include boxShadow(10px, 0px, 20px, #888888);
+        @include text-hover(30px);
+        a{
+            text-decoration: none;
+        }
+    }
+    img,li{
+        border: 1px solid white;
+        background-color: white;
+    }
+    img{
+        padding: 0 20px 0 20px;
+    }
+}
+.Teams{
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    grid-template-rows: (100px,repeat(2, 500px));
+    grid-row-gap: 20px;
+    justify-content: space-around;
+    justify-items: center;
+    .teamMember{
+        display: grid;
+        border: 1px solid white;
+        width: 120px;
+        height: 320px;
+        padding : 10px 60px 50px 60px;
+        justify-content: center;
+        @include boxShadow(10px, 0px, 20px, #888888);
+    }
+    .teamMember-info{
+        padding-top: 10px;
+        text-align: center;
+    }
+    img{
+        border-radius: 150px;
+        width: 220px;
+    }
+    #teamMember5{
+        grid-column-start: 1;
+        grid-column-end: span 4;
+        justify-self: center;
+    }
+}
